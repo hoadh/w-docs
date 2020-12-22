@@ -48,6 +48,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 ## Caddy
 
+### Cài đặt
 ```bash
 echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
     | sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
@@ -55,18 +56,24 @@ sudo apt update
 sudo apt install caddy
 ```
 
-Cập nhật lại Caddyfile
+### Cập nhật lại Caddyfile
 
 ```
 sudo nano /etc/caddy/Caddyfile
 ```
 
+Nội dung file Caddyfile
 
+```
+my-sub.domain.com
+reverse_proxy localhost:8000
+```
+
+### Restart caddy
 ```
 sudo systemctl restart caddy
 sudo systemctl status caddy
 ```
-
 
 
 ## Cài đặt WP qua Docker
